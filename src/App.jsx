@@ -20,6 +20,7 @@ import Login from "./pages/Login";
 import Signup from "./pages/Signup"; // 👈 import at top
 import CalendarPage from "./pages/Calendar"; // 👈 Add this
 import SalesAnalytics from "./pages/SalesAnalytics";
+import Tasks from "./pages/Tasks";
 
 function AppRoutes() {
   const { isLoggedIn } = useContext(AuthContext);
@@ -58,6 +59,7 @@ function AppRoutes() {
           <Route path="/settings" element={<Settings />} />
           <Route path="/calendar" element={<CalendarPage />} />
           <Route path="/analytics" element={<SalesAnalytics />} />
+          <Route path="/tasks" element={<Tasks />} />
         </>
       ) : (
         // redirect all other routes to login if not logged in

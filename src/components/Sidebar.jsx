@@ -11,6 +11,7 @@ import { FaCalendarAlt } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { FaChartBar } from "react-icons/fa";
 import { useLocation } from "react-router-dom";
+import { FaClipboardList } from "react-icons/fa";
 
 const Sidebar = () => {
   const location = useLocation();
@@ -24,6 +25,7 @@ const Sidebar = () => {
     { name: "Settings", icon: <FaCog />, path: "/settings" },
     { name: "Calendar", icon: <FaCalendarAlt />, path: "/calendar" }, // ✅ Add this line
     { name: "Analytics", icon: <FaChartBar />, path: "/analytics" },
+    { name: "Tasks", icon: <FaClipboardList />, path: "/tasks" },
   ];
 
   return (
