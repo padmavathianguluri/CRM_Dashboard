@@ -18,6 +18,7 @@ import AuthContextProvider, { AuthContext } from "./context/AuthContext";
 import { useContext } from "react";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup"; // 👈 import at top
+import CalendarPage from "./pages/Calendar"; // 👈 Add this
 
 function AppRoutes() {
   const { isLoggedIn } = useContext(AuthContext);
@@ -54,6 +55,7 @@ function AppRoutes() {
           <Route path="/users" element={<Users />} />
           <Route path="/products" element={<Products />} />
           <Route path="/settings" element={<Settings />} />
+          <Route path="/calendar" element={<CalendarPage />} />
         </>
       ) : (
         // redirect all other routes to login if not logged in
