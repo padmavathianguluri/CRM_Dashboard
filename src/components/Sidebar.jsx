@@ -9,7 +9,7 @@ import {
 } from "react-icons/fa";
 import { FaCalendarAlt } from "react-icons/fa";
 import { Link } from "react-router-dom";
-
+import { FaChartBar } from "react-icons/fa";
 import { useLocation } from "react-router-dom";
 
 const Sidebar = () => {
@@ -23,6 +23,7 @@ const Sidebar = () => {
     { name: "Products", icon: <FaBox />, path: "/products" },
     { name: "Settings", icon: <FaCog />, path: "/settings" },
     { name: "Calendar", icon: <FaCalendarAlt />, path: "/calendar" }, // ✅ Add this line
+    { name: "Analytics", icon: <FaChartBar />, path: "/analytics" },
   ];
 
   return (
