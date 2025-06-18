@@ -17,15 +17,46 @@ const Signup = () => {
     }));
   };
 
+  const validateForm = () => {
+    const { fullName, email, password } = formData;
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (!fullName || !email || !password) {
+      return "All fields are required.";
+    }
+    if (fullName.length < 3) {
+      return "Full name must be at least 3 characters.";
+    }
+    if (!emailRegex.test(email)) {
+      return "Invalid email address.";
+    }
+    if (password.length < 6) {
+      return "Password must be at least 6 characters.";
+    }
+
+    return "";
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    if (!formData.fullName || !formData.email || !formData.password) {
-      setError("All fields are required.");
+    const validationError = validateForm();
+    if (validationError) {
+      setError(validationError);
       return;
     }
 
-    localStorage.setItem("user", JSON.stringify(formData));
+    const users = JSON.parse(localStorage.getItem("users")) || [];
+
+    const existingUser = users.find((u) => u.email === formData.email);
+
+    if (existingUser) {
+      setError("User already exists with this email.");
+      return;
+    }
+
+    users.push(formData);
+    localStorage.setItem("users", JSON.stringify(users));
+    alert("Signup successful!");
     navigate("/login");
   };
 

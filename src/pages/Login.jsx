@@ -14,16 +14,18 @@ const Login = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Try matching against signup data from localStorage
-    const storedUser = JSON.parse(localStorage.getItem("user"));
+    const users = JSON.parse(localStorage.getItem("users")) || [];
 
-    if (
-      (storedUser &&
-        user.username === storedUser.email &&
-        user.password === storedUser.password) ||
-      (user.username === "admin" && user.password === "admin123")
-    ) {
-      login(); // update context
+    const matchedUser =
+      users.find(
+        (u) =>
+          (u.email === user.username || u.fullName === user.username) &&
+          u.password === user.password
+      ) ||
+      (user.username === "admin" && user.password === "admin123");
+
+    if (matchedUser) {
+      login();
       navigate("/");
     } else {
       alert("Invalid credentials!");
