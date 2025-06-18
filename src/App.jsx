@@ -17,36 +17,49 @@ import Settings from "./pages/Settings";
 import AuthContextProvider, { AuthContext } from "./context/AuthContext";
 import { useContext } from "react";
 import Login from "./pages/Login";
+import Signup from "./pages/Signup"; // 👈 import at top
 
 function AppRoutes() {
   const { isLoggedIn } = useContext(AuthContext);
 
-  if (!isLoggedIn) {
-    return (
-      <Routes>
-        <Route path="*" element={<Login />} />
-      </Routes>
-    );
-  }
-
   return (
-    <div className="flex">
-      <Sidebar />
-      <div className="grow ml-16 md:ml-64 h-full lg:h-screen bg-gray-100 text-gray-900 dark:bg-gray-900 dark:text-white">
-        <Navbar />
-        <div className="p-4">
-          <Routes>
-            <Route path="/" element={<Dashboard />} />
-            <Route path="/orders" element={<Orders />} />
-            <Route path="/customers" element={<Customers />} />
-            <Route path="/users" element={<Users />} />
-            <Route path="/products" element={<Products />} />
-            <Route path="/settings" element={<Settings />} />
-            <Route path="/login" element={<Navigate to="/" />} />
-          </Routes>
-        </div>
-      </div>
-    </div>
+    <Routes>
+      {/* Public routes */}
+      {!isLoggedIn && (
+        <>
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
+        </>
+      )}
+
+      {/* Protected routes */}
+      {isLoggedIn ? (
+        <>
+          <Route
+            path="/"
+            element={
+              <div className="flex">
+                <Sidebar />
+                <div className="grow ml-16 md:ml-64 h-full lg:h-screen bg-gray-100 text-gray-900 dark:bg-gray-900 dark:text-white">
+                  <Navbar />
+                  <div className="p-4">
+                    <Dashboard />
+                  </div>
+                </div>
+              </div>
+            }
+          />
+          <Route path="/orders" element={<Orders />} />
+          <Route path="/customers" element={<Customers />} />
+          <Route path="/users" element={<Users />} />
+          <Route path="/products" element={<Products />} />
+          <Route path="/settings" element={<Settings />} />
+        </>
+      ) : (
+        // redirect all other routes to login if not logged in
+        <Route path="*" element={<Navigate to="/login" />} />
+      )}
+    </Routes>
   );
 }
 
