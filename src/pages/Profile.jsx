@@ -5,9 +5,7 @@ const Profile = () => {
 
   useEffect(() => {
     const users = JSON.parse(localStorage.getItem("users")) || [];
-    const loggedUserEmail = JSON.parse(
-      localStorage.getItem("loggedInUserEmail")
-    );
+    const loggedUserEmail = localStorage.getItem("loggedInUserEmail");
 
     const currentUser = users.find((u) => u.email === loggedUserEmail);
     setUser(currentUser);

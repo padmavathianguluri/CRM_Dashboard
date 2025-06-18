@@ -21,6 +21,7 @@ import Signup from "./pages/Signup"; // 👈 import at top
 import CalendarPage from "./pages/Calendar"; // 👈 Add this
 import SalesAnalytics from "./pages/SalesAnalytics";
 import Tasks from "./pages/Tasks";
+import Profile from "./pages/Profile";
 
 function AppRoutes() {
   const { isLoggedIn } = useContext(AuthContext);
