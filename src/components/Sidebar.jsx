@@ -7,7 +7,11 @@ import {
   FaBox,
   FaCog,
 } from "react-icons/fa";
-import { Link, useLocation } from "react-router-dom";
+import { FaCalendarAlt } from "react-icons/fa";
+import { Link } from "react-router-dom";
+import { FaChartBar } from "react-icons/fa";
+import { useLocation } from "react-router-dom";
+import { FaClipboardList } from "react-icons/fa";
 
 const Sidebar = () => {
   const location = useLocation();
@@ -19,56 +23,18 @@ const Sidebar = () => {
     { name: "Users", icon: <FaUser />, path: "/users" },
     { name: "Products", icon: <FaBox />, path: "/products" },
     { name: "Settings", icon: <FaCog />, path: "/settings" },
+    { name: "Calendar", icon: <FaCalendarAlt />, path: "/calendar" }, // ✅ Add this line
+    { name: "Analytics", icon: <FaChartBar />, path: "/analytics" },
+    { name: "Tasks", icon: <FaClipboardList />, path: "/tasks" },
+    { name: "Profile", icon: <FaUser />, path: "/profile" },
   ];
 
   return (
-    <div className="bg-gray-100 text-gray-900 h-screen px-4 fixed w-16 md:w-64 border-rborder-gray-300">
+    <div className="bg-gray-100 text-gray-900 h-screen px-4 fixed w-16 md:w-64 border-r border-gray-300">
       <h1 className="text-2xl font-bold hidden md:block mt-4 text-center italic">
         CWY Shop
       </h1>
       <ul className="flex flex-col mt-5 text-xl">
-        {/* <li
-          className="flex items-center py-3 px-2 space-x-4 hover:rounded hover:cursor-pointer 
-        hover:text-white hover:bg-blue-600"
-        >
-          <FaTachometerAlt />
-          <span className="hidden md:inline">Dashboard</span>
-        </li>
-        <li
-          className="flex items-center py-3 px-2 space-x-4 hover:rounded hover:cursor-pointer 
-        hover:text-white hover:bg-blue-600"
-        >
-          <FaShoppingCart />
-          <span className="hidden md:inline ">Orders</span>
-        </li>
-        <li
-          className="flex items-center py-3 px-2 space-x-4 hover:rounded hover:cursor-pointer 
-        hover:text-white hover:bg-blue-600"
-        >
-          <FaUsers />
-          <span className="hidden md:inline ">Customers</span>
-        </li>
-        <li
-          className="flex items-center py-3 px-2 space-x-4 hover:rounded hover:cursor-pointer 
-        hover:text-white hover:bg-blue-600"
-        >
-          <FaUser />
-          <span className="hidden md:inline ">Users</span>
-        </li>
-        <li
-          className="flex items-center py-3 px-2 space-x-4 hover:rounded hover:cursor-pointer 
-        hover:text-white hover:bg-blue-600"
-        >
-          <FaBox />
-          <span className="hidden md:inline ">Products</span>
-        </li>
-        <li
-          className="flex items-center py-3 px-2 space-x-4 hover:rounded hover:cursor-pointer 
-        hover:text-white hover:bg-blue-600"
-        >
-          <FaCog />
-          <span className="hidden md:inline ">Settings</span>
-        </li>*/}
         {menuItems.map((item, index) => (
           <li key={index}>
             <Link
