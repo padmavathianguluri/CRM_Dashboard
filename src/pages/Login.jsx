@@ -26,6 +26,10 @@ const Login = () => {
 
     if (matchedUser) {
       login();
+      localStorage.setItem(
+        "loggedInUserEmail",
+        matchedUser.email || matchedUser.username
+      );
       navigate("/");
     } else {
       alert("Invalid credentials!");

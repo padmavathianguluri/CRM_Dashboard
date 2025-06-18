@@ -60,6 +60,7 @@ function AppRoutes() {
           <Route path="/calendar" element={<CalendarPage />} />
           <Route path="/analytics" element={<SalesAnalytics />} />
           <Route path="/tasks" element={<Tasks />} />
+          <Route path="/profile" element={<Profile />} />
         </>
       ) : (
         // redirect all other routes to login if not logged in

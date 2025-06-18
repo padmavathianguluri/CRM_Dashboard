@@ -26,6 +26,7 @@ const Sidebar = () => {
     { name: "Calendar", icon: <FaCalendarAlt />, path: "/calendar" }, // ✅ Add this line
     { name: "Analytics", icon: <FaChartBar />, path: "/analytics" },
     { name: "Tasks", icon: <FaClipboardList />, path: "/tasks" },
+    { name: "Profile", icon: <FaUser />, path: "/profile" },
   ];
 
   return (
