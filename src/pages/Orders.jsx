@@ -3,28 +3,28 @@ import React, { useState } from "react";
 const sampleOrders = [
   {
     id: "ORD1001",
-    customer: "John Doe",
+    customer: "Jahnavi",
     date: "2025-06-20",
     status: "Delivered",
     total: "₹1,200",
   },
   {
     id: "ORD1002",
-    customer: "Jane Smith",
+    customer: "Nagendra",
     date: "2025-06-18",
     status: "Pending",
     total: "₹2,500",
   },
   {
     id: "ORD1003",
-    customer: "Michael Brown",
+    customer: "srinivas",
     date: "2025-06-15",
     status: "Shipped",
     total: "₹980",
   },
   {
     id: "ORD1004",
-    customer: "Emily Johnson",
+    customer: "krishna vamsi",
     date: "2025-06-12",
     status: "Cancelled",
     total: "₹0",
