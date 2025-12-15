@@ -8,8 +8,8 @@ const sampleUsers = [
     access: "Full",
   },
   {
-    name: "John Manager",
-    email: "john@example.com",
+    name: "Padma",
+    email: "padma@example.com",
     role: "Manager",
     access: "Moderate",
   },

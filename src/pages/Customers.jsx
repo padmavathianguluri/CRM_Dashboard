@@ -2,26 +2,26 @@ import React, { useState } from "react";
 
 const sampleCustomers = [
   {
-    name: "John Doe",
-    email: "john@example.com",
+    name: "Nagendra",
+    email: "nag@example.com",
     phone: "9876543210",
     orders: 5,
   },
   {
-    name: "Jane Smith",
-    email: "jane@example.com",
+    name: "Jaya",
+    email: "jaya@example.com",
     phone: "9123456780",
     orders: 8,
   },
   {
-    name: "Emily Johnson",
-    email: "emily@example.com",
+    name: "Eekshitha",
+    email: "ekshitha@example.com",
     phone: "9898989898",
     orders: 3,
   },
   {
-    name: "Michael Brown",
-    email: "michael@example.com",
+    name: "Madhavi",
+    email: "madhavis@example.com",
     phone: "9789456123",
     orders: 2,
   },
