@@ -13,8 +13,23 @@ const Login = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (user.username === "admin" && user.password === "admin123") {
-      login(); // update context + localStorage
+
+    const users = JSON.parse(localStorage.getItem("users")) || [];
+
+    const matchedUser =
+      users.find(
+        (u) =>
+          (u.email === user.username || u.fullName === user.username) &&
+          u.password === user.password
+      ) ||
+      (user.username === "admin" && user.password === "admin123");
+
+    if (matchedUser) {
+      login();
+      localStorage.setItem(
+        "loggedInUserEmail",
+        matchedUser.email || matchedUser.username
+      );
       navigate("/");
     } else {
       alert("Invalid credentials!");
@@ -32,7 +47,7 @@ const Login = () => {
         <input
           type="text"
           name="username"
-          placeholder="Username"
+          placeholder="Username or Email"
           className="w-full p-2 mb-4 border border-gray-300 rounded"
           value={user.username}
           onChange={handleChange}
@@ -53,6 +68,16 @@ const Login = () => {
         >
           Login
         </button>
+
+        <p className="mt-4 text-sm text-center">
+          Don't have an account?{" "}
+          <span
+            onClick={() => navigate("/signup")}
+            className="text-blue-600 hover:underline cursor-pointer"
+          >
+            Sign up
+          </span>
+        </p>
       </form>
     </div>
   );
